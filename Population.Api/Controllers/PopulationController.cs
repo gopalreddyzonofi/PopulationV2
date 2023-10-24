@@ -26,6 +26,17 @@ public class PopulationController : ControllerBase
         
         return Ok(populations);
     }
+    [HttpPut("{id}")]
+    public IActionResult Update([FromBody] Population.Models.Population updatedPopulation, int id)
+    {
+        if (updatedPopulation == null || id <= 0)
+            return BadRequest();
+
+        if (_populationService.Update(updatedPopulation))
+            return Ok();
+        else
+            return NotFound();
+    }
 
 }
 

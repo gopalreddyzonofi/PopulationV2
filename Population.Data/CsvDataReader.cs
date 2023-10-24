@@ -10,7 +10,7 @@ namespace Population.Data
 {
     public class CsvDataReader
     {
-       
+
         public IEnumerable<T> ReadCsvData<T>(string path) where T : class
         {
             using (var reader = new StreamReader(path))

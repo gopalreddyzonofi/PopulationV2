@@ -1,37 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useTable, useSortBy, useFilters } from "react-table";
-import { population, fetchData } from "../api";
+import { population, fetchData, updateData } from "../api";
 import { SummaryCard } from "./summary-card";
 import { FooterCard } from "./footer";
 import Pagination from "./pagination";
-
-type Column = {
-  Header: string;
-  accessor: keyof population;
-};
-
-const columns: Column[] = [
-  {
-    Header: "ID",
-    accessor: "id",
-  },
-  {
-    Header: "Country",
-    accessor: "country",
-  },
-  {
-    Header: "Year",
-    accessor: "year",
-  },
-  {
-    Header: "TotalMale",
-    accessor: "totalMale",
-  },
-  {
-    Header: "TotalFemale",
-    accessor: "totalFemale",
-  },
-];
 
 export const PopulationGrid = () => {
   const [data, setData] = useState<population[]>([]);
@@ -46,11 +18,58 @@ export const PopulationGrid = () => {
   const [sortBy, setSortBy] = useState("");
   const [totalPages, setTotalPages] = useState(0);
   const [showSearchText, setShowSearchText] = useState(false);
+  const [columns, setColumns] = useState<any[]>([]);
+
+  useEffect(() => {
+    setColumns([
+      {
+        Header: "ID",
+        accessor: "id",
+      },
+      {
+        Header: "Country",
+        accessor: "country",
+      },
+      {
+        Header: "Year",
+        accessor: "year",
+      },
+      {
+        Header: "TotalMale",
+        accessor: "totalMale",
+      },
+      {
+        Header: "TotalFemale",
+        accessor: "totalFemale",
+      },
+
+    ]);
+  }, []);
 
   const handleSort = (headerText: string) => {
     setPageNumber(1);
     setSortBy(headerText?.toLowerCase());
     setSortDirection(sortDirection === "asc" ? "desc" : "asc");
+  };
+
+  const [editingRowId, setEditingRowId] = useState(null);
+  const [editedRowData, setEditedRowData] = useState<any>(null);
+
+  const startEditing = (rowId: any, rowData: any) => {
+    setEditingRowId(rowId);
+    setEditedRowData(rowData);
+  };
+
+  const stopEditing = () => {
+    setEditingRowId(null);
+    setEditedRowData(null);
+  };
+
+  const handleInlineChange = (columnId: any, value: string) => {
+    setEditedRowData((prevData: any) => ({
+      ...prevData,
+      [columnId]: value,
+    }));
   };
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
@@ -64,6 +83,7 @@ export const PopulationGrid = () => {
 
       useSortBy
     );
+
   const handleKeyDown = (e: any) => {
     if (e.key === "Enter" && e.target.value) {
       setSearchTerm(e.target.value);
@@ -93,6 +113,12 @@ export const PopulationGrid = () => {
       });
   };
 
+  const saveInlineChanges = async () => {
+    await updateData(editedRowData)
+    loadData(true);
+    stopEditing();
+  };
+
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {
@@ -120,7 +146,6 @@ export const PopulationGrid = () => {
             value={summary?.avgFemalePopulation?.toFixed(2) ?? "0"}
           />
         </div>
-
       </header>
 
       {loading ? (
@@ -173,23 +198,28 @@ export const PopulationGrid = () => {
                       }}
                     >
                       {column.render("Header")}
-                      <button onClick={() => handleSort(column.Header)}>
-                        <div>
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="9.75"
-                            height="12"
-                            viewBox="0 0 9.75 12"
-                          >
-                            <path
-                              id="icons8-sort"
-                              d="M16.264,8.156a.562.562,0,0,0-.777,0l-4.312,4.125a.563.563,0,0,0,.388.969h8.625a.563.563,0,0,0,.389-.969Zm3.924,6.594H11.563a.563.563,0,0,0-.389.969l4.312,4.125a.563.563,0,0,0,.778,0l4.312-4.125a.563.563,0,0,0-.389-.969Z"
-                              transform="translate(-11 -8)"
-                              fill="#9295a5"
-                            />
-                          </svg>
-                        </div>
-                      </button>
+                      {column.Header.toLowerCase() !== "actions" && (
+                        <button
+                          style={{ marginLeft: "10px" }}
+                          onClick={() => handleSort(column.Header)}
+                        >
+                          <div>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="9.75"
+                              height="12"
+                              viewBox="0 0 9.75 12"
+                            >
+                              <path
+                                id="icons8-sort"
+                                d="M16.264,8.156a.562.562,0,0,0-.777,0l-4.312,4.125a.563.563,0,0,0,.388.969h8.625a.563.563,0,0,0,.389-.969Zm3.924,6.594H11.563a.563.563,0,0,0-.389.969l4.312,4.125a.563.563,0,0,0,.778,0l4.312-4.125a.563.563,0,0,0-.389-.969Z"
+                                transform="translate(-11 -8)"
+                                fill="#9295a5"
+                              />
+                            </svg>
+                          </div>
+                        </button>
+                      )}
                     </th>
                   ))}
                 </tr>
@@ -198,16 +228,44 @@ export const PopulationGrid = () => {
             <tbody {...getTableBodyProps()}>
               {rows.map((row: any) => {
                 prepareRow(row);
+                const isEditing = editingRowId === row.id;
                 return (
-                  <tr
-                    {...row.getRowProps()}
-                    style={{ borderBottom: "1px solid #e0e0e0" }}
-                  >
+                  <tr {...row.getRowProps()}>
                     {row.cells.map((cell: any) => (
-                      <td {...cell.getCellProps()} style={{ padding: "10px" }}>
-                        {cell.render("Cell")}
+                      <td {...cell.getCellProps()}>
+                        {isEditing ? (
+                          <>
+                            <input
+                              value={editedRowData[cell.column.id]}
+                              onChange={(e) =>
+                                handleInlineChange(
+                                  cell.column.id,
+                                  e.target.value
+                                )
+                              }
+                            />
+                          </>
+                        ) : (
+                          cell.render("Cell")
+                        )}
                       </td>
                     ))}
+                    {isEditing ? (
+                      <>
+                        <td>
+                          <button onClick={saveInlineChanges}>Save</button>
+                          <button onClick={stopEditing}>Cancel</button>
+                        </td>
+                      </>
+                    ) : (
+                      <td>
+                        <button
+                          onClick={() => startEditing(row.id, row.original)}
+                        >
+                          Edit
+                        </button>
+                      </td>
+                    )}
                   </tr>
                 );
               })}

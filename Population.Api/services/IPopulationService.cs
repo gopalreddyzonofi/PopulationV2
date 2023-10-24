@@ -7,5 +7,7 @@ namespace Population.Api.Services
     {
         PaginatedResponse<Population.Models.Population> GetAll(string searchTerm, string sortBy, string sortDirection, int pageNumber, int pageSize );
 
+        bool Update(Population.Models.Population updatedPopulation);
+
     }
 }

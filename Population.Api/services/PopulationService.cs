@@ -1,9 +1,6 @@
-﻿using System;
-using System.Globalization;
-using Population.Api.Services;
+﻿using Population.Api.Services;
 using Population.Data;
 using Population.Models;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Population.Api.services
 {
@@ -42,6 +39,19 @@ namespace Population.Api.services
                 TotalCount = totalCount
             };
 
+        }
+
+        public bool Update(Population.Models.Population updatedPopulation)
+        {
+            var populations = _populationRepository.GetAll().ToList();
+
+            var index = populations.FindIndex(p => p.ID == updatedPopulation.ID);
+            if (index == -1) return false;
+
+            populations[index] = updatedPopulation;
+
+            _populationRepository.SaveAll(populations);  
+            return true;
         }
 
         private  IEnumerable<Population.Models.Population> ApplySort(IEnumerable<Models.Population> populations, string sortBy, string sortDirection)

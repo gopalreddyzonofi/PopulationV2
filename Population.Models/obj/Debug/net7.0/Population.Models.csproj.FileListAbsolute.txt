@@ -1,0 +1,11 @@
+/Users/gopalreddy/Projects/PopulationSuite/Population.Models/bin/Debug/net7.0/Population.Models.deps.json
+/Users/gopalreddy/Projects/PopulationSuite/Population.Models/bin/Debug/net7.0/Population.Models.dll
+/Users/gopalreddy/Projects/PopulationSuite/Population.Models/bin/Debug/net7.0/Population.Models.pdb
+/Users/gopalreddy/Projects/PopulationSuite/Population.Models/obj/Debug/net7.0/Population.Models.GeneratedMSBuildEditorConfig.editorconfig
+/Users/gopalreddy/Projects/PopulationSuite/Population.Models/obj/Debug/net7.0/Population.Models.AssemblyInfoInputs.cache
+/Users/gopalreddy/Projects/PopulationSuite/Population.Models/obj/Debug/net7.0/Population.Models.AssemblyInfo.cs
+/Users/gopalreddy/Projects/PopulationSuite/Population.Models/obj/Debug/net7.0/Population.Models.csproj.CoreCompileInputs.cache
+/Users/gopalreddy/Projects/PopulationSuite/Population.Models/obj/Debug/net7.0/Population.Models.dll
+/Users/gopalreddy/Projects/PopulationSuite/Population.Models/obj/Debug/net7.0/refint/Population.Models.dll
+/Users/gopalreddy/Projects/PopulationSuite/Population.Models/obj/Debug/net7.0/Population.Models.pdb
+/Users/gopalreddy/Projects/PopulationSuite/Population.Models/obj/Debug/net7.0/ref/Population.Models.dll

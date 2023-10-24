@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "bd0S1UwJR0nWIqEeFpl0CcARIm7JbCr2wDQGa4UkmDYrTntI2E01nlDa8XKhS9G6Svgwn/cs69tfkpZaXvEUcw==",
+  "success": true,
+  "projectFilePath": "/Users/gopalreddy/PopulationV2/Population.Data/Population.Data.csproj",
+  "expectedPackageFiles": [
+    "/Users/gopalreddy/.nuget/packages/csvhelper/30.0.1/csvhelper.30.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

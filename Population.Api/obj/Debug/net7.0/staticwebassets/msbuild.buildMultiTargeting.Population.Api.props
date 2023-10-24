@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="../build/Population.Api.props" />
+</Project>

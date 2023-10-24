@@ -1,0 +1,15 @@
+/Users/gopalreddy/Projects/PopulationSuite/Population.Data/bin/Debug/net7.0/Population.Data.deps.json
+/Users/gopalreddy/Projects/PopulationSuite/Population.Data/bin/Debug/net7.0/Population.Data.dll
+/Users/gopalreddy/Projects/PopulationSuite/Population.Data/bin/Debug/net7.0/Population.Data.pdb
+/Users/gopalreddy/Projects/PopulationSuite/Population.Data/obj/Debug/net7.0/Population.Data.csproj.AssemblyReference.cache
+/Users/gopalreddy/Projects/PopulationSuite/Population.Data/obj/Debug/net7.0/Population.Data.GeneratedMSBuildEditorConfig.editorconfig
+/Users/gopalreddy/Projects/PopulationSuite/Population.Data/obj/Debug/net7.0/Population.Data.AssemblyInfoInputs.cache
+/Users/gopalreddy/Projects/PopulationSuite/Population.Data/obj/Debug/net7.0/Population.Data.AssemblyInfo.cs
+/Users/gopalreddy/Projects/PopulationSuite/Population.Data/obj/Debug/net7.0/Population.Data.csproj.CoreCompileInputs.cache
+/Users/gopalreddy/Projects/PopulationSuite/Population.Data/obj/Debug/net7.0/Population.Data.dll
+/Users/gopalreddy/Projects/PopulationSuite/Population.Data/obj/Debug/net7.0/refint/Population.Data.dll
+/Users/gopalreddy/Projects/PopulationSuite/Population.Data/obj/Debug/net7.0/Population.Data.pdb
+/Users/gopalreddy/Projects/PopulationSuite/Population.Data/obj/Debug/net7.0/ref/Population.Data.dll
+/Users/gopalreddy/Projects/PopulationSuite/Population.Data/bin/Debug/net7.0/Population.Models.dll
+/Users/gopalreddy/Projects/PopulationSuite/Population.Data/bin/Debug/net7.0/Population.Models.pdb
+/Users/gopalreddy/Projects/PopulationSuite/Population.Data/obj/Debug/net7.0/Population.Data.csproj.CopyComplete

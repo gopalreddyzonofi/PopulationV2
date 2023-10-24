@@ -1,0 +1,99 @@
+## .NET Core
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]og[Ll]og/
+
+#wwwroot/
+
+## ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+## .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+**/Properties/launchSettings.json
+
+## Rider
+.idea/
+
+## VS Code
+.vscode/
+*.code-workspace
+
+## Visual Studio for Mac
+.vscode/
+.vs7config
+.vsconfig
+.vscode/
+
+## Rider
+.idea/
+
+## User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+## Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+## VS Code directories
+.vscode/
+
+## Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+## Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+## Node.js
+node_modules/
+
+## Windows shortcuts
+*.lnk
+
+## JetBrains Rider
+.idea/
+*.sln.iml
+
+## ASP.NET Core
+wwwroot/
+**/Properties/PublishProfiles/
+
+## Unwanted files
+*.log
+*.old
+*.bak
+
+## Other common tools
+*.dbmdl
+*.cache
+*.diagram
+
+## Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+## Recycle Bin used on file shares
+$RECYCLE.BIN/

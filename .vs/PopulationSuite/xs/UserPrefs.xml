@@ -1,0 +1,37 @@
+﻿<Properties StartupConfiguration="{49226571-58BD-4912-936E-FCF043C8158A}|https">
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.ItemProperties.Population.Api PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Population.Models/Population.cs">
+    <Files>
+      <File FileName="Population.Api/services/PopulationService.cs" Line="51" Column="51" />
+      <File FileName="Population.Data/IPopulationRepository.cs" Line="6" Column="44" />
+      <File FileName="Population.Data/PopulationRespository.cs" Line="30" Column="2" />
+      <File FileName="Population.Api/Controllers/PopulationController.cs" Line="24" Column="52" />
+      <File FileName="Population.Api/services/IPopulationService.cs" Line="10" Column="69" />
+      <File FileName="Population.Api/PopulationSampleDataSet.csv" Line="1" Column="1" />
+      <File FileName="Population.Data/CsvDataReader.cs" Line="29" Column="1" />
+      <File FileName="Population.Models/Population.cs" Line="6" Column="14" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="PopulationSuite" expanded="True">
+            <Node name="Population.Api" expanded="True">
+              <Node name="Controllers" expanded="True" />
+              <Node name="services" expanded="True" />
+            </Node>
+            <Node name="Population.Data" expanded="True" />
+            <Node name="Population.Models" expanded="True">
+              <Node name="Population.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MultiItemStartupConfigurations />
+</Properties>

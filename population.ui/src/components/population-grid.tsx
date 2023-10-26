@@ -87,6 +87,7 @@ export const PopulationGrid = () => {
   const handleKeyDown = (e: any) => {
     if (e.key === "Enter" && e.target.value) {
       setSearchTerm(e.target.value);
+      setPageNumber(1);
       loadData();
       searchTerm && setShowSearchText(true);
     }
@@ -98,10 +99,12 @@ export const PopulationGrid = () => {
         setData(responseData.data);
         setSummary({
           avgFemalePopulation:
-            responseData.data.reduce((sum, pop) => sum + pop.totalMale, 0) /
+            isNaN(responseData.data.reduce((sum, pop) => Number(sum) + Number(pop.totalMale), 0) /
+              responseData.data.length) ? 0 : responseData.data.reduce((sum, pop) => Number(sum) + Number(pop.totalMale), 0) /
             responseData.data.length,
           avgMalePopulation:
-            responseData.data.reduce((sum, pop) => sum + pop.totalFemale, 0) /
+            isNaN(responseData.data.reduce((sum, pop) => Number(sum) + Number(pop.totalFemale), 0) /
+              responseData.data.length) ? 0 : responseData.data.reduce((sum, pop) => Number(sum) + Number(pop.totalFemale), 0) /
             responseData.data.length,
         });
         setTotalPages(Math.ceil(responseData.totalCount / 10));
